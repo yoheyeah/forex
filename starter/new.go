@@ -2,6 +2,11 @@ package starter
 
 import "forex/library/files"
 
+var (
+	iniSettingFile  = "setting.ini"
+	jsonSettingFile = "setting.json"
+)
+
 type Content struct {
 	ConfigFile string
 	App        App
@@ -15,7 +20,7 @@ type Content struct {
 
 func Default() *Content {
 	content := &Content{
-		ConfigFile: "setting.ini",
+		ConfigFile: iniSettingFile,
 	}
 	files.BindFileToObj(content.ConfigFile, content)
 	content.Builder(&content.App)
